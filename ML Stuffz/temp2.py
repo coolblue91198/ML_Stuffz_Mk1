@@ -308,9 +308,19 @@ def train_alg():
 
     print(f"After {num_iterations} iterations: b = {final_b}, m = {final_m}, error = {final_error}")
 
-    # Plot Results
-    plot1 = sns.relplot(x='total_bill', y='tip', )
+    # Eqn For Line of Best Fit
+    best_fit_line = final_m * data_train['total_bill'] + final_b
 
+    # Plot Results
+    plot1 = sns.relplot(x='total_bill', y='tip', data=data_train)
+    plot2 = plt.plot(data_train['total_bill'], best_fit_line, 'r')
+    plot1.set(xlabel='Total Bill [$]', ylabel="Tips [$]", title='Final Results')
+    plt.show()
+
+
+def post_anl():
+    """See how choosing random values for m and b effect outcome"""
+    pass
 
 
 if __name__ == '__main__':
